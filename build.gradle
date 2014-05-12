@@ -1,0 +1,42 @@
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'application'
+version = '1.0'
+mainClassName = 'br.com.btoffoli.App'
+
+
+//task compile << {
+//    println 'compiling source'
+//}
+//
+//task compileTest(dependsOn: compile) << {
+//    println 'compiling unit tests'
+//}
+//
+//task teste(dependsOn: [compile, compileTest]) << {
+//    println 'running unit tests'
+//}
+//
+//task dist(dependsOn: [compile, test]) << {
+//    println 'building the distribution'
+//}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.2.0'
+    testCompile 'junit:junit:4.11'
+}
+
+
+task uberjar(type: Jar,dependsOn:[':compileJava',':compileGroovy']) {
+    from files(sourceSets.main.output.classesDir)
+    from configurations.runtime.asFileTree.files.collect { zipTree(it) }
+
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
