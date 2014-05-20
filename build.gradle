@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'groovy'
 apply plugin: 'application'
 version = '1.0'
-mainClassName = 'br.com.btoffoli.App'
+mainClassName = 'br.com.btoffoli.Game'
 
 //manifest.mainAttributes("Main-Class" : mainClassName)
 
