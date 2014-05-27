@@ -1,4 +1,4 @@
-package src.main.br.com.btoffoli.objects
+package br.com.btoffoli.objects
 
 import java.awt.event.KeyEvent
 import java.awt.event.KeyListener

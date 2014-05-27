@@ -1,6 +1,6 @@
 package br.com.btoffoli
 
-
+import br.com.btoffoli.canvasObjects.PointCanvas
 
 import javax.swing.ImageIcon
 import javax.swing.JFrame
@@ -9,10 +9,9 @@ import java.awt.Canvas
 import java.awt.Component
 import java.awt.Graphics
 
-import br.com.btoffoli.objects.*
-import br.com.btoffoli.canvasObjects.*
 
 import br.com.btoffoli.objects.PacmanObject
+import br.com.btoffoli.canvasObjects.PacmanCanvas
 
 
 /**
@@ -36,7 +35,6 @@ class Game {
         mainWindow.addKeyListener(pacman)
         mainWindow.layout = new BorderLayout()
         mainWindow.setSize(800, 800)
-        mainWindow.pacManComponent =  add('Center', pacManCanvas)
         mainWindow.title = 'Game'
         mainWindow.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
         mainWindow.locationRelativeTo = null
@@ -48,7 +46,12 @@ class Game {
     private void render(){
 
         final PacmanCanvas pacmanCanvas = new PacmanCanvas()
-        final Component pacManComponent = mainWindow.add('Center', pacmanCanvas)
+
+        final PointCanvas pointCanvas = new PointCanvas(400, 400)
+
+        mainWindow.add(pacmanCanvas, 0)
+
+        mainWindow.add(pointCanvas, 1)
 
 
         Thread.startDaemon {
@@ -58,7 +61,7 @@ class Game {
 
                 //}
 
-                pacManComponent.setLocation(pacman.positionX, pacman.positionY)
+                pacmanCanvas.setLocation(pacman.positionX, pacman.positionY)
 
                 sleep(100)
             }
