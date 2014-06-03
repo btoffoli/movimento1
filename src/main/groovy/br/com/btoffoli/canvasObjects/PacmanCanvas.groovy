@@ -34,9 +34,11 @@ class PacmanCanvas extends Canvas {
         //ImageIcon imageIcon = new ImageIcon('src/resource/images/pacman.png')
         //image = imageIcon.image
         //g.drawImage(image, x, y, this)
-        graphics.setColor(Color.red);
-        graphics.drawRect(x, y, 50, 50);
-        graphics.fillRect(x, y, 50, 50);
+
+        graphics.setColor(Color.red)
+        graphics.drawRect(x, y, 50, 50)
+        graphics.fillRect(x, y, 50, 50)
+        graphics.setClip(x, y, 50, 50)
     }
 
 }

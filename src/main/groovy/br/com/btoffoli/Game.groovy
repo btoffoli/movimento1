@@ -45,13 +45,11 @@ class Game {
 
     private void render(){
 
-        final PacmanCanvas pacmanCanvas = new PacmanCanvas()
+        PacmanCanvas pacmanCanvas = mainWindow.add(new PacmanCanvas(), 0)
 
-        final PointCanvas pointCanvas = new PointCanvas(400, 400)
+        PointCanvas pointCanvas = mainWindow.add(new PointCanvas(400, 400), 1)      
 
-        mainWindow.add(pacmanCanvas, 0)
-
-        mainWindow.add(pointCanvas, 1)
+        
 
 
         Thread.startDaemon {
