@@ -28,7 +28,9 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.2.0'
+    compile 'org.lwjgl.lwjgl:lwjgl:2.9.1'
     testCompile 'junit:junit:4.11'
+
 }
 
 
@@ -39,5 +41,10 @@ task uberjar(type: Jar,dependsOn:[':compileJava',':compileGroovy']) {
     manifest {
         attributes 'Main-Class': mainClassName
     }
+}
+
+task runScript (dependsOn: 'classes', type: JavaExec) {
+    main = mainClassName
+    classpath = sourceSets.main.runtimeClasspath
 }
 

@@ -7,11 +7,18 @@ import javax.swing.JFrame
 import java.awt.BorderLayout
 import java.awt.Canvas
 import java.awt.Component
+
 import java.awt.Graphics
 
 
 import br.com.btoffoli.objects.PacmanObject
 import br.com.btoffoli.canvasObjects.PacmanCanvas
+
+
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
+
 
 
 /**
@@ -90,9 +97,13 @@ class Game {
 //        cnvs.repaint()
         //g.drawRect(200, 200, 100, 100)
         //g.drawString("Hello", 200, 200);
-        new Game()
+        //new Game()
 
         //println(new File('./').absolutePath)
+
+        //Display.setDisplayMode(new DisplayMode(800,600))
+        Display.setDisplayMode(new DisplayMode(800, 600));
+        Display.create();
 
     }
 
